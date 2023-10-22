@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      let bass = new Audio();
+      bass.src = 'sound_drum/bass.mp3';
+
+      let crash = new Audio();
+      crash.src = 'sound_drum/crash.mp3';
+
+      let floorTom = new Audio();
+      floorTom.src = 'sound_drum/floor-tom.mp3';
+
+      let hihatFoot = new Audio();
+      hihatFoot.src = 'sound_drum/hihat-foot.mp3';
+
+      let hihatOpen = new Audio();
+      hihatOpen.src = 'sound_drum/hihat-open.mp3';
+
+      let hihat = new Audio();
+      hihat.src = 'sound_drum/hihat.mp3';
+
+      let ride = new Audio();
+      ride.src = 'sound_drum/ride.mp3';
+
+      let shareDrum = new Audio();
+      shareDrum.src = 'sound_drum/share-drum.mp3';
+
+      let shareStick = new Audio();
+      shareStick.src = 'sound_drum/share-stick.mp3';
+
+      let tom1 = new Audio();
+      tom1.src = 'sound_drum/tom1.mp3';
+
+      let tom2 = new Audio();
+      tom2.src = 'sound_drum/tom2.mp3';
+    </script>
+
+    
+<style>
+  .getar {
+    transition: transform 0.1s ease-in-out;
+  }
+  .getar:active {
+    transform: scale(1) translateY(5px);
+  }
+</style>
+  </head>
+  <body class="bg-[url('img/drum.jpg')] bg-cover">
+    <div onclick="playDrum('hihatOpen')" class="getar cursor-pointer absolute flex w-44 h-44 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-900 shadow-xl shadow-black left-[32%] top-[97px] justify-center items-center">⚫</div>
+    <div onclick="playDrum('hihat')" class="getar cursor-pointer absolute flex w-56 h-56 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-900 shadow-2xl shadow-black -z-10 left-[16%] top-[200px] justify-center items-center">⚫</div>
+    <div onclick="playDrum('crash')" class="getar cursor-pointer absolute flex w-48 h-48 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-900 shadow-xl shadow-black left-[47%] top-[60px] justify-center items-center">⚫</div>
+    <div onclick="playDrum('shareDrum')" class="transition-all duration-300 active:scale-110 cursor-pointer absolute flex w-56 h-56 rounded-full bg-gradient-to-b from-blue-700 to-blue-800 shadow-2xl shadow-black left-[30%] top-[230px] -z-30 justify-center items-center outline-dotted font-bold font-serif text-base text-white">Share-Drum</div>
+    <div onclick="playDrum('shareStick')" class="transition-all duration-300 active:scale-110 cursor-pointer absolute flex w-48 h-48 rounded-full bg-gradient-to-b from-blue-700 to-blue-800 shadow-2xl shadow-black left-[25%] top-[380px] -z-40 justify-center items-center outline-dotted font-bold font-serif text-xs text-white">Share-Stick</div>
+    <div onclick="playDrum('tom1')" class="transition-all duration-300 active:scale-110 cursor-pointer absolute flex w-44 h-44 rounded-full bg-gradient-to-br from-blue-700 to-blue-800 shadow-2xl shadow-black top-[190px] left-[43%] -z-30 justify-center items-center outline-dotted font-bold font-serif text-base text-white">Tom1</div>
+    <div onclick="playDrum('floorTom')" class="transition-all duration-300 active:scale-110 cursor-pointer absolute flex w-36 h-36 rounded-full bg-gradient-to-br from-blue-700 to-blue-800 shadow-2xl shadow-black left-[52%] top-[260px] -z-30 outline-dotted text-white font-bold font-serif text-xs justify-center items-center">Floor-Tom</div>
+    <div onclick="playDrum('ride')" class="getar cursor-pointer absolute flex w-64 h-64 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-900 shadow-xl shadow-black left-[60%] top-[140px] justify-center items-center">⚫</div>
+    <div onclick="playDrum('bass')" class= "transition-all duration-300 active:scale-110 cursor-pointer absolute flex w-72 h-72 rounded-full bg-black shadow-2xl shadow-black left-[37%] top-[350px] -z-50 justify-center items-center  outline-dotted font-bold font-serif text-lg text-white">Bass</div>
+    <div onclick="playDrum('tom2')" class="transition-all duration-300 active:scale-110 cursor-pointer absolute flex w-64 h-64 rounded-full bg-gradient-to-br from-blue-700 to-blue-800 shadow-2xl shadow-black left-[55%] -z-50 justify-center items-center outline-dotted font-bold font-serif text-base top-[300px] text-white">Tom2</div>
+    <div onclick="playDrum('hihatFoot')" class="transition-all duration-300 active:scale-110 cursor-pointer absolute flex w-40 h-40 rounded-full bg-black shadow-2xl shadow-black -z-20 left-[15%] top-[390px] justify-center items-center text-white text-sm outline-dotted font-bold font-serif">Hihat-Foot</div>
+      
+
+    <script>
+      function playDrum(notes) {
+        switch (notes) {
+          case 'bass':
+            bass.load();
+            bass.play();  
+            break;
+          case 'crash':
+            crash.load();
+            crash.play();
+            break;
+          case 'floorTom':
+            floorTom.load();
+            floorTom.play();
+            break;
+          case 'hihatFoot':
+            hihatFoot.load();
+            hihatFoot.play();
+            break;
+          case 'hihatOpen':
+            hihatOpen.load();
+            hihatOpen.play();
+            break;
+          case 'hihat':
+            hihat.load();
+            hihat.play();
+            break;
+          case 'ride':
+            ride.load();
+            ride.play();
+            break;
+          case 'shareDrum':
+            shareDrum.load();
+            shareDrum.play();
+            break;
+          case 'shareStick':
+            shareStick.load();
+            shareStick.play();
+            break;
+          case 'tom1':
+            tom1.load();
+            tom1.play();
+            break;
+          case 'tom2':
+            tom2.load();
+            tom2.play();
+            break;
+        }
+      }
+
+      document.addEventListener('keypress', function () {
+        switch (event.key) {
+          case '1':
+            playDrum('bass');
+            break;
+          case '2':
+            playDrum('crash');
+            break;
+          case '3':
+            playDrum('floorTom');
+            break;
+          case '4':
+            playDrum('hihatFoot');
+            break;
+          case '5':
+            playDrum('hihatOpen');
+            break;
+          case '6':
+            playDrum('hihat');
+            break;
+          case '7':
+            playDrum('ride');
+            break;
+          case '8':
+            playDrum('shareDrum');
+            break;
+          case '9':
+            playDrum('shareStick');
+            break;
+          case '0':
+            playDrum('tom1');
+            break;
+          case '-':
+            playDrum('tom2');
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gitar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      let soundC = new Audio();
+      soundC.src = 'sound_gitar/C.mp3';
+
+      let soundAm = new Audio();
+      soundAm.src = 'sound_gitar/Am.mp3';
+
+      let soundDm = new Audio();
+      soundDm.src = 'sound_gitar/Dm.mp3';
+
+      let soundG = new Audio();
+      soundG.src = 'sound_gitar/G.mp3';
+    </script>
+
+    <style>
+      .senar {
+        transition: transform 0.2s ease-in-out;
+      }
+      .senar:active {
+        transform: scale(1) translateY(2px);
+      }
+    </style>
+  </head>
+  <body class="bg-[url('img/gitar.jpg')] bg-cover">
+    <div class="flex items-center mt-40 ml-4 rounded-3xl ps-8 mx-8 p-8">
+      <div class="bg-orange-700 py-10 px-5 h-72 w-[500px] z-40 rounded-3xl">
+        <div class="flex w-48 h-48 rounded-full bg-gray-900 border-white border-8 relative left-[190px]"></div>
+        <div class="w-8 h-24 bg-gray-900 rounded-3xl border-white relative border-8 left-[40px] top-[-136px]"></div>
+      </div>
+
+      <div class="bg-slate-700 w-[1100px] absolute flex h-[105px] cursor-pointer">
+        <div class="senar duration-150 w-[1009px] h-1.5 bg-white absolute bottom-1/2 transform top-[13px] left-[91px] z-50" onclick="playGuitar('C')"></div>
+        <div class="senar duration-150 w-[1011px] h-1.5 bg-white absolute bottom-1/2 transform top-[38px] left-[89px] z-50" onclick="playGuitar('Am')"></div>
+        <div class="senar duration-150 w-[1011px] h-1.5 bg-white absolute bottom-1/2 transform top-[60px] left-[89px] z-50" onclick="playGuitar('Dm')"></div>
+        <div class="senar duration-150 w-[1009px] h-1.5 bg-white absolute bottom-1/2 transform top-[85px] left-[91px] z-50" onclick="playGuitar('G')"></div>
+      </div>
+
+      <div class="bg-orange-700 w-[42px] h-[170px] absolute flex right-44 rounded-lg text-white" style="line-height: 1.65;"><br> C <br> Am <br> Dm <br> G</div>
+      <div class="bg-orange-700 w-[48px] h-[130px] absolute flex right-32 rounded-lg"></div>
+      <div class="bg-orange-700 w-[64px] h-[90px] absolute flex right-16 rounded-lg"></div>
+    </div>
+
+    <script>
+      function playGuitar(notes) {
+        switch (notes) {
+          case 'C':
+            soundC.load();
+            soundC.play();
+            break;
+          case 'Am':
+            soundAm.load();
+            soundAm.play();
+            break;
+          case 'Dm':
+            soundDm.load();
+            soundDm.play();
+            break;
+          case 'G':
+            soundG.load();
+            soundG.play();
+            break;
+        }
+      }
+
+      document.addEventListener('keypress', function () {
+        switch (event.key) {
+          case '1':
+            playGuitar('C');
+            break;
+          case '2':
+            playGuitar('Am');
+            break;
+          case '3':
+            playGuitar('Dm');
+            break;
+          case '4':
+            playGuitar('G');
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

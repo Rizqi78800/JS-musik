@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      let soundDo = new Audio();
+      soundDo.src = 'sound_piano/Do.mp3';
+
+      let soundRe = new Audio();
+      soundRe.src = 'sound_piano/Re.mp3';
+
+      let soundMi = new Audio();
+      soundMi.src = 'sound_piano/Mi.mp3';
+
+      let soundFa = new Audio();
+      soundFa.src = 'sound_piano/Fa.mp3';
+
+      let soundSol = new Audio();
+      soundSol.src = 'sound_piano/Sol.mp3';
+
+      let soundLa = new Audio();
+      soundLa.src = 'sound_piano/La.mp3';
+
+      let soundSi = new Audio();
+      soundSi.src = 'sound_piano/Si.mp3';
+
+      let soundDo2 = new Audio();
+      soundDo2.src = 'sound_piano/Do2.mp3';
+
+      let sound_C = new Audio();
+      sound_C.src = 'sound_piano/C.mp3';
+
+      let sound_D = new Audio();
+      sound_D.src = 'sound_piano/D.mp3';
+
+      let sound_F = new Audio();
+      sound_F.src = 'sound_piano/F.mp3';
+
+      let sound_G = new Audio();
+      sound_G.src = 'sound_piano/G.mp3';
+
+      let sound_A = new Audio();
+      sound_A.src = 'sound_piano/A.mp3';
+    </script>
+  </head>
+
+  <body class="layar">
+    <div class="luar">
+      <div class="piano">
+        <button class="putih"><br /><br /><br /><br /><br />F3</button>
+        <button class="hitam">F#</button>
+        <button class="putih"><br /><br /><br /><br /><br />G3</button>
+        <button class="hitam">G#</button>
+        <button class="putih"><br /><br /><br /><br /><br />A3</button>
+        <button class="hitam">A#</button>
+        <button class="putih"><br /><br /><br /><br /><br />B3</button>
+        <button class="putih" onclick="playputih('DO')"><br /><br /><br /><br /><br />DO</button>
+        <button class="hitam" onclick="playhitam('C#')">C#</button>
+        <button class="putih" onclick="playputih('RE')"><br /><br /><br /><br /><br />RE</button>
+        <button class="hitam" onclick="playhitam('D#')">D#</button>
+        <button class="putih" onclick="playputih('MI')"><br /><br /><br /><br /><br />MI</button>
+        <button class="putih" onclick="playputih('FA')"><br /><br /><br /><br /><br />FA</button>
+        <button class="hitam" onclick="playhitam('F#')">F#</button>
+        <button class="putih" onclick="playputih('SOL')"><br /><br /><br /><br /><br />SOL</button>
+        <button class="hitam" onclick="playhitam('G#')">G#</button>
+        <button class="putih" onclick="playputih('LA')"><br /><br /><br /><br /><br />LA</button>
+        <button class="hitam" onclick="playhitam('A#')">A#</button>
+        <button class="putih" onclick="playputih('SI')"><br /><br /><br /><br /><br />SI</button>
+        <button class="putih" onclick="playputih('DO2')"><br /><br /><br /><br /><br />DO2</button>
+        <button class="hitam">C#</button>
+        <button class="putih"><br /><br /><br /><br /><br />D5</button>
+        <button class="hitam">D#</button>
+        <button class="putih"><br /><br /><br /><br /><br />E5</button>
+        <button class="putih"><br /><br /><br /><br /><br />F5</button>
+        <button class="hitam">F#</button>
+        <button class="putih"><br /><br /><br /><br /><br />G5</button>
+        <button class="hitam">G#</button>
+        <button class="putih"><br /><br /><br /><br /><br />A5</button>
+        <button class="hitam">A#</button>
+        <button class="putih"><br /><br /><br /><br /><br />B5</button>
+        <button class="putih roun"><br /><br /><br /><br /><br />C6</button>
+      </div>
+    </div>
+
+    <script>
+      let layars = document.getElementsByClassName('layar');
+      // Iterate through the collection of elements with the class 'layar' and add classes to each element.
+      for (let i = 0; i < layars.length; i++) {
+        layars[i].classList.add('flex', 'm-0', 'p-0', 'h-screen', 'justify-center', 'items-center',"bg-[url('img/piano.jpg')]" ,'bg-cover', 'bg-center');
+      }
+      let luars = document.getElementsByClassName('luar'); // Mengambil semua elemen dengan kelas 'piano'
+      // Iterasi melalui koleksi elemen 'piano' dan menambahkan kelas pada masing-masing elemen.
+      for (let i = 0; i < luars.length; i++) {
+        luars[i].classList.add('flex', 'relative', 'p-7', 'bg-blue-500','pt-3','pb-9', 'justify-center', 'items-center', 'rounded-xl');
+      }
+
+      let pianos = document.getElementsByClassName('piano'); // Mengambil semua elemen dengan kelas 'piano'
+      // Iterasi melalui koleksi elemen 'piano' dan menambahkan kelas pada masing-masing elemen.
+      for (let i = 0; i < pianos.length; i++) {
+        pianos[i].classList.add('flex', 'relative');
+      }
+
+      let hitam_children = document.getElementsByClassName('hitam');
+      for (let i = 0; i < hitam_children.length; i++) {
+        hitam_children[i].classList.add('w-8','rounded-b-lg', 'h-32', 'bg-black', 'm-0', '-mx-4', '-z-0', 'text-white', 'hover:bg-yellow-500');
+      }
+
+      let putih_children = document.getElementsByClassName('putih');
+      for (let i = 0; i < putih_children.length; i++) {
+        putih_children[i].classList.add('text-xl','rounded-b-md', 'w-14', 'h-52', 'border', 'hover:bg-blue-400', 'active:bg-blue-400', 'bg-white');
+      }
+
+      function playhitam(notes) {
+        switch (notes) {
+          case 'C#':
+            sound_C.load();
+            sound_C.play();
+            break;
+          case 'D#':
+            sound_D.load();
+            sound_D.play();
+            break;
+          case 'F#':
+            sound_F.load();
+            sound_F.play();
+            break;
+          case 'G#':
+            sound_G.load();
+            sound_G.play();
+            break;
+          case 'A#':
+            sound_A.load();
+            sound_A.play();
+            break;
+        }
+      }
+
+      document.addEventListener('keypress', function () {
+        switch (event.key) {
+          case '1':
+            playhitam('C#');
+            break;
+          case '2':
+            playhitam('D#');
+            break;
+          case '3':
+            playhitam('F#');
+            break;
+          case '4':
+            playhitam('G#');
+            break;
+          case '5':
+            playhitam('A#');
+        }
+      });
+
+      function playputih(chord) {
+        switch (chord) {
+          case 'DO':
+            soundDo.load();
+            soundDo.play();
+            break;
+          case 'RE':
+            soundRe.load();
+            soundRe.play();
+            break;
+          case 'MI':
+            soundMi.load();
+            soundMi.play();
+            break;
+          case 'FA':
+            soundFa.load();
+            soundFa.play();
+            break;
+          case 'SOL':
+            soundSol.load();
+            soundSol.play();
+            break;
+          case 'LA':
+            soundLa.load();
+            soundLa.play();
+            break;
+          case 'SI':
+            soundSi.load();
+            soundSi.play();
+            break;
+          case 'DO2':
+            soundDo2.load();
+            soundDo2.play();
+            break;
+        }
+      }
+
+      document.addEventListener('keypress', function () {
+        switch (event.key) {
+          case 'a':
+            playputih('DO');
+            break;
+          case 's':
+            playputih('RE');
+            break;
+          case 'd':
+            playputih('MI');
+            break;
+          case 'f':
+            playputih('FA');
+            break;
+          case 'g':
+            playputih('SOL');
+            break;
+          case 'h':
+            playputih('LA');
+            break;
+          case 'j':
+            playputih('SI');
+            break;
+          case 'k':
+            playputih('DO2');
+        }
+      });
+    </script>
+  </body>
+</html>
